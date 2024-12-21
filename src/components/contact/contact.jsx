@@ -9,16 +9,16 @@ export default function Contact() {
                 </h2>
                 <div className="mt-6 text-lg text-gray-700 text-center">
                     <p className="mt-4 font-medium">
-                        Utkarsh Pratap Singh: 1MS22CI075@gmail.com
+                        Utkarsh Pratap Singh: 1MS22CI075@msrit.edu
                     </p>
                     <p className="mt-4 font-medium">
-                        Sumit Bubanale: 1MS22CI067@gmail.com
+                        Sumit Bubanale: 1MS22CI067@msrit.edu
                     </p>
                     <p className="mt-4 font-medium">
-                        Lokesh HM: 1MS22CI037@gmail.com
+                        Lokesh HM: 1MS22CI037@msrit.edu
                     </p>
                     <p className="mt-4 font-medium">
-                        Yallamraju Lokesh: 1MS22CI078@gmail.com
+                        Yallamraju Lokesh: 1MS22CI078@msrit.edu
                     </p>
                 </div>
             </div>
