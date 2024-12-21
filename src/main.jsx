@@ -8,7 +8,8 @@ import Contact from './components/contact/contact'
 import Login from './components/Login/Login'
 
 import CourseRecommendation from './components/courcerecommend/Course'
-// import App from './App.jsx'
+import Collab from './components/collab/DashBoard'
+
 import './index.css'
 import { createBrowserRouter, createRoutesFromChildren, createRoutesFromElements, Route, Router, RouterProvider } from 'react-router-dom'
 import App from './App'
@@ -47,6 +48,7 @@ const router = createBrowserRouter(
       <Route path='todo' element={<App />}  />  
       <Route path='courcerecommend' element={<CourseRecommendation />}  />  
       <Route path='login' element={<Login/>}/>
+      <Route path='collab' element={<Collab/>}/>
     </Route>
   )
 )
