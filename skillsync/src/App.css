@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+header {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo-img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.menu li {
+  cursor: pointer;
+  background: white;
+  color: #4CAF50;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.menu li:hover {
+  background: #ddd;
+}
+
+.signup, .goals {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.signup h2, .goals h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label, .goals textarea {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form input, form button, .goals textarea, .goals button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button, .goals button {
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover, .goals button:hover {
+  background: #45a049;
+}
