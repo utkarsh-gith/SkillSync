@@ -17,27 +17,27 @@ function TodoItem({ todo }) {
         toggleComplete(todo.id);
     };
 
-    const today = new Date().toISOString().split("T")[0]; // Format for date comparison
+    const today = new Date().toISOString().split("T")[0]; 
 
-    // Function to determine deadline color based on how near the deadline is
+    
     const getDeadlineColor = () => {
-        const timeDiff = new Date(endDate) - new Date(today); // Difference in milliseconds
-        const oneDay = 24 * 60 * 60 * 1000; // milliseconds in a day
+        const timeDiff = new Date(endDate) - new Date(today); 
+        const oneDay = 24 * 60 * 60 * 1000; 
         const daysLeft = timeDiff / oneDay;
 
         if (daysLeft <= 7) {
-            return 'bg-red-600'; // Deadline within 7 days (red)
+            return 'bg-red-600'; 
         } else if (daysLeft <= 21) {
-            return 'bg-yellow-500'; // Deadline within 21 days (yellow)
+            return 'bg-yellow-500'; 
         } else {
-            return 'bg-green-500'; // Deadline more than 21 days (green)
+            return 'bg-green-500'; 
         }
     };
 
     return (
         <div
             className={`flex flex-col border border-black/10 rounded-lg px-3 py-1.5 gap-y-2 shadow-sm shadow-white/50 duration-300 text-black 
-                ${getDeadlineColor()} ${todo.completed ? "text-[#E06522] bg-[#FFFFFF]" : "text-black"}`}
+                ${todo.completed ? "bg-[#FFFFFF] text-[#E06522]" : getDeadlineColor()}`}
         >
             <div className="flex items-center gap-x-3">
                 <input
