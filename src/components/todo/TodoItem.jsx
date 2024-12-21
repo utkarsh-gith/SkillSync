@@ -9,15 +9,6 @@ function TodoItem({ todo }) {
     const { updateTodo, deleteTodo, toggleComplete } = useTodo();
 
     const editTodo = () => {
-        const today = new Date().toISOString().split("T")[0];
-        if (startDate < today) {
-            alert("Start date cannot be in the past. Choose the current date or a future date.");
-            return;
-        }
-        if (endDate <= startDate) {
-            alert("End date must be after start date. Please ensure that the end date is later than the start date.");
-            return;
-        }
         updateTodo(todo.id, { ...todo, todo: todoMsg, startDate, endDate });
         setIsTodoEditable(false);
     };
@@ -26,6 +17,7 @@ function TodoItem({ todo }) {
         toggleComplete(todo.id);
     };
 
+    const today = new Date().toISOString().split("T")[0];
     return (
         <div
             className={`flex flex-col border border-black/10 rounded-lg px-3 py-1.5 gap-y-2 shadow-sm shadow-white/50 duration-300 text-black ${
@@ -58,6 +50,7 @@ function TodoItem({ todo }) {
                             isTodoEditable ? "border-black/10 px-2" : "border-transparent"
                         }`}
                         value={startDate}
+                        min={today}
                         onChange={(e) => setStartDate(e.target.value)}
                         readOnly={!isTodoEditable}
                     />
@@ -70,6 +63,7 @@ function TodoItem({ todo }) {
                             isTodoEditable ? "border-black/10 px-2" : "border-transparent"
                         }`}
                         value={endDate}
+                        min={startDate || today}
                         onChange={(e) => setEndDate(e.target.value)}
                         readOnly={!isTodoEditable}
                     />
