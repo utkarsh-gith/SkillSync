@@ -1,54 +1,9 @@
+/* General styles for light mode */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
-  }
-  
-  .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .auth-card {
-    background: #fff;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .auth-card h2 {
-    margin-bottom: 20px;
-  }
-  
-  .auth-card input {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .auth-card button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .auth-card button:hover {
-    background-color: #45a049;
-  }
-  
-  .auth-card p {
-    color: #007bff;
-    cursor: pointer;
   }
   
   .header {
@@ -96,4 +51,53 @@ body {
   .stats ul li {
     padding: 10px 0;
     border-bottom: 1px solid #ccc;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode .header {
+    background-color: #333;
+  }
+  
+  body.dark-mode .header nav ul li {
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode .auth-card {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode .auth-card input,
+  body.dark-mode .auth-card button {
+    background-color: #444;
+    color: #f1f1f1;
+    border: 1px solid #666;
+  }
+  
+  body.dark-mode .auth-card button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  body.dark-mode .stats ul li {
+    border-bottom: 1px solid #666;
+  }
+  
+  /* Theme Toggle Button */
+  .theme-toggle button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .theme-toggle button:hover {
+    background-color: #45a049;
   }

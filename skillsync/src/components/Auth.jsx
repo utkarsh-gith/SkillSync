@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import "../index.css";
+import React, { useState, useEffect } from "react";
+import "../styles/auth.css";
 
 const Auth = ({ setIsLoggedIn }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({ username: "", password: "" });
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,6 +18,14 @@ const Auth = ({ setIsLoggedIn }) => {
       setIsLoggedIn(true);
     }
   };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [isDarkMode]);
 
   return (
     <div className="auth-container">
@@ -44,6 +53,16 @@ const Auth = ({ setIsLoggedIn }) => {
         <p onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
         </p>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={isDarkMode}
+              onChange={() => setIsDarkMode(!isDarkMode)}
+            />
+            Dark Mode
+          </label>
+        </div>
       </div>
     </div>
   );

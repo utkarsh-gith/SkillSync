@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = ({ setIsLoggedIn }) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check localStorage to see if darkMode was previously set
+    const savedMode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(savedMode);
+    if (savedMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, []);
+
   const handleLogout = () => {
     setIsLoggedIn(false);
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem("darkMode", !darkMode);
+    if (!darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
   };
 
   return (
@@ -19,6 +42,11 @@ const Header = ({ setIsLoggedIn }) => {
           <li onClick={handleLogout}>Logout</li>
         </ul>
       </nav>
+      <div className="theme-toggle">
+        <button onClick={toggleDarkMode}>
+          {darkMode ? "Light Mode" : "Dark Mode"}
+        </button>
+      </div>
     </header>
   );
 };
