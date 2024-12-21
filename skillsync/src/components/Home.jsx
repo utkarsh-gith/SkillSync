@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Home() {
+const Home = () => {
+  const [goals, setGoals] = useState(["Complete React project", "Work out for 30 minutes"]);
+
   return (
     <div className="home">
-      <h2>Welcome to SkillSync</h2>
-      <section className="stats">
-        <h3>Your Stats</h3>
-        <p>Stats will appear here...</p>
-      </section>
-      <section className="goals">
-        <h3>Today's Goals</h3>
-        <p>Your saved goals will appear here...</p>
-      </section>
+      <div className="stats">
+        <h2>Welcome to SkillSync!</h2>
+        <p>Here are your stats and goals for today:</p>
+        <ul>
+          {goals.map((goal, index) => (
+            <li key={index}>{goal}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
-}
+};
 
 export default Home;

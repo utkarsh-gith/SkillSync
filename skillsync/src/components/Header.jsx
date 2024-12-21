@@ -1,23 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-function Header() {
+const Header = ({ setIsLoggedIn }) => {
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <header className="header">
       <div className="logo">
-        <img src="/logo.png" alt="SkillSync Logo" className="logo-img" />
         <h1>SkillSync</h1>
       </div>
       <nav>
-        <ul className="menu">
-          <li><Link to="/home">Home</Link></li>
-          <li><Link to="/home">Dashboard</Link></li>
-          <li><Link to="/home">Buddy Finder</Link></li>
-          <li><Link to="/home">Settings</Link></li>
+        <ul>
+          <li>Home</li>
+          <li>Dashboard</li>
+          <li>Buddy Finder</li>
+          <li>Settings</li>
+          <li onClick={handleLogout}>Logout</li>
         </ul>
       </nav>
     </header>
   );
-}
+};
 
 export default Header;
