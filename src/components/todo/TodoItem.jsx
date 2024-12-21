@@ -17,7 +17,24 @@ function TodoItem({ todo }) {
         toggleComplete(todo.id);
     };
 
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Date();
+    const end = new Date(endDate);
+
+    // Function to determine deadline color based on how near the deadline is
+    const getDeadlineColor = () => {
+        const timeDiff = end - today;
+        const oneDay = 24 * 60 * 60 * 1000; // milliseconds in a day
+        const daysLeft = timeDiff / oneDay;
+
+        if (daysLeft <= 7) {
+            return 'bg-red-600';  // Deadline is within 7 days (red)
+        } else if (daysLeft <= 21) {
+            return 'bg-yellow-500';  // Deadline is within 21 days (yellow)
+        } else {
+            return 'bg-green-500';  // Deadline is more than 21 days (green)
+        }
+    };
+
     return (
         <div
             className={`flex flex-col border border-black/10 rounded-lg px-3 py-1.5 gap-y-2 shadow-sm shadow-white/50 duration-300 text-black ${
@@ -50,23 +67,23 @@ function TodoItem({ todo }) {
                             isTodoEditable ? "border-black/10 px-2" : "border-transparent"
                         }`}
                         value={startDate}
-                        min={today}
+                        min={today.toISOString().split('T')[0]}
                         onChange={(e) => setStartDate(e.target.value)}
                         readOnly={!isTodoEditable}
                     />
                 </div>
                 <div className="flex flex-col w-full">
                     <label className="text-sm text-gray-700">End Date</label>
-                    <input
-                        type="date"
-                        className={`border outline-none w-full bg-transparent rounded-lg ${
-                            isTodoEditable ? "border-black/10 px-2" : "border-transparent"
-                        }`}
-                        value={endDate}
-                        min={startDate || today}
-                        onChange={(e) => setEndDate(e.target.value)}
-                        readOnly={!isTodoEditable}
-                    />
+                    <div className={`border outline-none w-full rounded-lg ${getDeadlineColor()}`}>  {/* Apply background color to the container */}
+                        <input
+                            type="date"
+                            value={endDate}
+                            min={startDate || today.toISOString().split('T')[0]}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            readOnly={!isTodoEditable}
+                            className="w-full bg-transparent rounded-lg text-black"
+                        />
+                    </div>
                 </div>
             </div>
             <div className="flex items-center gap-x-3">
