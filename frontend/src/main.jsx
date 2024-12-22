@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import Header  from './components/header/header'
 import Home from './components/home/home'
 import Layout from './components/layout'
-
+import News from './components/news/NewsFetcher'
 import Contact from './components/contact/contact'
 import Login from './components/Login/Login'
 
@@ -49,6 +49,7 @@ const router = createBrowserRouter(
       <Route path='courcerecommend' element={<CourseRecommendation />}  />  
       <Route path='login' element={<Login/>}/>
       <Route path='collab' element={<Collab/>}/>
+      <Route path='news' element={<News/>}/>
     </Route>
   )
 )
