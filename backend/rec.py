@@ -8,26 +8,26 @@ from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Initialize Flask app
+
 app = Flask(__name__)
 CORS(app)
 
-# Download NLTK stopwords
+
 nltk.download('stopwords')
 
-# Load and preprocess dataset
+
 df = pd.read_csv('../frontend/public/data/Online_Courses.csv')
 
-# Rename columns
+
 df.rename(columns={
     "Description": "Short Intro",
     "Skills / Interests": "Skills"
 }, inplace=True)
 
-# Fill missing values (assuming 'Short Intro' is the column)
+
 df['Short Intro'].fillna('', inplace=True) 
 
-# Generate textual representation for each course
+
 def textual_rep(row):
     return f"""
     Title: {row['Title']}
@@ -42,7 +42,7 @@ def textual_rep(row):
 
 df['textual_representation'] = df.apply(textual_rep, axis=1)
 
-# Text preprocessing
+
 porter_stemmer = PorterStemmer()
 stop_words = set(stopwords.words('english'))
 
@@ -53,17 +53,17 @@ def stemming(content):
 
 df['processed_text'] = df['textual_representation'].apply(stemming)
 
-# Vectorize the processed text
+
 vectorizer = TfidfVectorizer()
 text_vectors = vectorizer.fit_transform(df['processed_text'])
 
-# Precompute similarity matrix
+
 similarity_matrix = cosine_similarity(text_vectors)
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
     try:
-        print("Received request:", request.json)  # Log the request
+        print("Received request:", request.json) 
         user_input = request.json.get('query', '')
         if not user_input:
             return jsonify({'error': 'No query provided'}), 400
@@ -86,7 +86,7 @@ def recommend():
 
         print("Top recommendations:", top_recommendations)
         if not top_recommendations:
-            return jsonify([])  # Return an empty array if no recommendations are found
+            return jsonify([])  
 
         return jsonify(top_recommendations)
 

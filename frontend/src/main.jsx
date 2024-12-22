@@ -13,30 +13,7 @@ import Collab from './components/collab/DashBoard'
 import './index.css'
 import { createBrowserRouter, createRoutesFromChildren, createRoutesFromElements, Route, Router, RouterProvider } from 'react-router-dom'
 import App from './App'
-// const router = createBrowserRouter([
-//   {
-//     path:'/',
-//     element:<Layout/>,
-//     children: [
-//       {
-//         path:"",
-//         element:<Home/>,
-//       },
-      
-//       {
-//         path:"about",
-//         element:<About/>,
-//       },
-      
-//       {
-//         path:"contact",
-//         element:<Contact/>,
-//       },
-      
-//     ]
 
-//   }
-// ])
 
 const router = createBrowserRouter(
   createRoutesFromElements(

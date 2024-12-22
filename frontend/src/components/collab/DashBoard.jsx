@@ -9,7 +9,7 @@ function Dashboard() {
 
     const addGoal = (goal) => {
         setGoals([...goals, goal]);
-        // Initialize progress for each person
+        
         const initialProgress = goal.names.map(name => ({ name, progress: 0 }));
         setProgress([...progress, ...initialProgress]);
     };

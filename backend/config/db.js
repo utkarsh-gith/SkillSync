@@ -1,7 +1,7 @@
-require('dotenv').config(); // Ensure this line is at the top
+require('dotenv').config(); 
 const mongoose = require('mongoose');
 
-console.log("MongoDB URI:", process.env.DB_URL); // Log the connection string
+console.log("MongoDB URI:", process.env.DB_URL); 
 
 let isConnected = false;
 

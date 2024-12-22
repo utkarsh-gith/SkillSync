@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/userModel.js");
 const router = express.Router();
 
-// Middleware to log requests
+
 router.use((req, res, next) => {
     console.log("Received request to /users");
     next();

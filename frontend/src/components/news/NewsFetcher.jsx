@@ -17,7 +17,7 @@ const NewsFetcher = () => {
       const response = await axios.get('https://newsapi.org/v2/everything', {
         params: {
           q: query,
-          apiKey: '075235c9b1664a80ab6a08d1c3587240', // Replace with your NewsAPI key
+          apiKey: '075235c9b1664a80ab6a08d1c3587240', 
         },
       });
 

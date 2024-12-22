@@ -9,10 +9,10 @@ export default function Header() {
 
         const handleScroll = () => {
             if (window.scrollY > lastScrollY) {
-                // Scrolling down
+                
                 setHidden(true);
             } else {
-                // Scrolling up
+                
                 setHidden(false);
             }
             lastScrollY = window.scrollY;

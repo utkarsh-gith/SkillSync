@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';  // Import axios for HTTP requests
+import axios from 'axios';  
 
 export default function LoginSignup() {
     const [isLogin, setIsLogin] = useState(true);
     const [formData, setFormData] = useState({ username: '', email: '', password: '' });
     const [error, setError] = useState('');
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate(); 
 
     const toggleMode = () => {
         setIsLogin(!isLogin);
@@ -26,16 +26,16 @@ export default function LoginSignup() {
             const data = isLogin
                 ? { username: formData.username, password: formData.password }
                 : { username: formData.username, email: formData.email, password: formData.password };
-            console.log(`Submitting to ${endpoint} with data:`, data); // Debugging log
+            console.log(`Submitting to ${endpoint} with data:`, data); 
 
-            // Send form data to the backend
+            
             const response = await axios.post(endpoint, data);
             console.log(response.data);
 
-            // Navigate to Home after login or signup
+            
             navigate('/');
         } catch (err) {
-            console.log('Error during form submission:', err); // Debugging log
+            console.log('Error during form submission:', err); 
             setError(err.response ? err.response.data.error : 'An error occurred. Please try again.');
         }
     };
@@ -75,7 +75,7 @@ export default function LoginSignup() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 className="w-full px-3 py-2 border rounded-lg"
-                                required={!isLogin}  // Required only for signup
+                                required={!isLogin}  
                             />
                         </div>
                     )}
