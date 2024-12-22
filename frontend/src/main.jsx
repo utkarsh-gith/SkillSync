@@ -7,7 +7,7 @@ import Layout from './components/layout'
 import Contact from './components/contact/contact'
 import Login from './components/Login/Login'
 
-import CourseRecommendation from './components/courcerecommend/Course'
+import CourseRecommendation from './components/courcerecommend/CourseRecommend';
 import Collab from './components/collab/DashBoard'
 
 import './index.css'
