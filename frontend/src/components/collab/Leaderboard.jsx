@@ -16,3 +16,4 @@ function Leaderboard({ progress }) {
 }
 
 export default Leaderboard;
+

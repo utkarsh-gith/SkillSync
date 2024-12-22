@@ -15,11 +15,6 @@ function GoalForm({ addGoal }) {
         setNames([...names, ""]);
     };
 
-    const handleDeleteName = (index) => {
-        const newNames = names.filter((_, idx) => idx !== index);
-        setNames(newNames);
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         addGoal({ names, goal, goalType });
@@ -31,29 +26,21 @@ function GoalForm({ addGoal }) {
     return (
         <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
             {names.map((name, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                    <input
-                        type="text"
-                        placeholder={`Name ${index + 1}`}
-                        className="w-full border border-black/10 rounded-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
-                        value={name}
-                        onChange={(e) => handleNameChange(index, e.target.value)}
-                    />
-                    <button
-                        type="button"
-                        onClick={() => handleDeleteName(index)}
-                        className="bg-red-500 text-white px-3 py-1 rounded-lg"
-                    >
-                        Delete
-                    </button>
-                </div>
+                <input
+                    key={index}
+                    type="text"
+                    placeholder={`Enter Name ${index + 1}`}
+                    className="w-full border border-black/10 rounded-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
+                    value={name}
+                    onChange={(e) => handleNameChange(index, e.target.value)}
+                />
             ))}
             <button type="button" onClick={addNameField} className="rounded-lg px-3 py-1 bg-blue-600 text-white">
-                Add Name
+                Add Another Name
             </button>
             <input
                 type="text"
-                placeholder="Goal"
+                placeholder="Enter Goal"
                 className="w-full border border-black/10 rounded-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
